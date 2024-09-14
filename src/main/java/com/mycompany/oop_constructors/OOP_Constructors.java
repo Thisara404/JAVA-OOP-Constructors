@@ -19,7 +19,8 @@ public class OOP_Constructors {
             switch (input) {
                 case "start":
                     stopwatch.start();
-                    System.out.println("Stopwatch started.");
+                    System.out.println("Stopwatch started and Running......"
+                            + "\n ' if you want to stop Enter the Command ' ");
                     break;
                 case "stop":
                     stopwatch.stop();
@@ -41,5 +42,6 @@ public class OOP_Constructors {
                     System.out.println("Invalid command. Please try again.");
             }
         }
+        
     }
 }
