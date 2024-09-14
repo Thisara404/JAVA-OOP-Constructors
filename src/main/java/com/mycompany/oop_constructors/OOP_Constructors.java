@@ -1,41 +1,45 @@
 package com.mycompany.oop_constructors;
+import java.util.Scanner;
+
 public class OOP_Constructors {
 
     public static void main(String[] args) {
 
-        // Instantiate a Stopwatch object
-        Stopwatch stopwatch = new Stopwatch();
-        
-        // Simulate starting the stopwatch
-        System.out.println("Starting the stopwatch...");
-        stopwatch.start();
+       Stopwatch stopwatch = new Stopwatch();
+        Scanner scanner = new Scanner(System.in);
+        String input;
 
-        // Simulate the passage of time
-        try {
-            Thread.sleep(5000);  // Simulating a 5-second delay
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        System.out.println("Stopwatch Program");
+        System.out.println("Commands: start, stop, reset, elapsed, quit");
+
+        while (true) {
+            System.out.print("Enter command: ");
+            input = scanner.nextLine().toLowerCase();
+
+            switch (input) {
+                case "start":
+                    stopwatch.start();
+                    System.out.println("Stopwatch started.");
+                    break;
+                case "stop":
+                    stopwatch.stop();
+                    System.out.println("Stopwatch stopped.");
+                    break;
+                case "reset":
+                    stopwatch.reset();
+                    System.out.println("Stopwatch reset.");
+                    break;
+                case "elapsed":
+                    System.out.printf("Elapsed time: %.2f seconds\n", stopwatch.getElapsedTime());
+                    System.out.println("Formatted time: " + stopwatch.getFormattedElapsedTime());
+                    break;
+                case "quit":
+                    System.out.println("Exiting program.");
+                    scanner.close();
+                    return;
+                default:
+                    System.out.println("Invalid command. Please try again.");
+            }
         }
-
-        // Stop the stopwatch
-        stopwatch.stop();
-        System.out.println("Stopping the stopwatch...");
-        System.out.println("Elapsed Time: " + stopwatch.getFormattedElapsedTime());
-
-        // Reset the stopwatch
-        System.out.println("Resetting the stopwatch...");
-        stopwatch.reset();
-        System.out.println("Elapsed Time after reset: " + stopwatch.getFormattedElapsedTime());
-
-        // Start and stop the stopwatch again with a different duration
-        stopwatch.start();
-        try {
-            Thread.sleep(3000);  // Simulating a 3-second delay
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        stopwatch.stop();
-        System.out.println("Elapsed Time after restarting: " + stopwatch.getFormattedElapsedTime());
-    
     }
 }
